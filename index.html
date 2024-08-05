@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+        }
+        .quiz-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+        .quiz-container h2 {
+            margin-bottom: 20px;
+        }
+        .quiz-container button {
+            margin: 5px 0;
+        }
+        #score-container {
+            display: none;
+        }
+        .progress {
+            height: 20px;
+            margin-bottom: 20px;
+        }
+        .btn-correct {
+            background-color: #28a745 !important;
+            color: white;
+        }
+        .btn-incorrect {
+            background-color: #dc3545 !important;
+            color: white;
+        }
+        .feedback {
+            display: none;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .correct-feedback {
+            color: #28a745;
+        }
+        .incorrect-feedback {
+            color: #dc3545;
+        }
+        .question-list {
+            margin-top: 20px;
+            text-align: left;
+        }
+        .question-list a {
+            display: block;
+            color: #007bff;
+            padding: 5px 0;
+            text-decoration: none;
+        }
+        .question-list a.active {
+            font-weight: bold;
+        }
+        .question-list a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <div class="progress">
+            <div id="progress-bar" class="progress-bar" role="progressbar" style="width: 0%;"></div>
+        </div>
+        <h2 id="question">Question text</h2>
+        <div class="btn-group-vertical" id="choices">
+            <!-- Choices will be added here dynamically -->
+        </div>
+        <div class="feedback" id="feedback"></div>
+        <button class="btn btn-secondary mt-3" id="prev-btn" onclick="prevQuestion()" style="display: none;">Previous</button>
+        <button class="btn btn-primary mt-3" id="next-btn" onclick="nextQuestion()" style="display: none;">Next</button>
+        <div id="score-container" class="mt-3">
+            <h3>Your Score: <span id="score"></span></h3>
+            <h4>Percentage: <span id="percentage"></span>%</h4>
+        </div>
+        <div class="question-list" id="question-list">
+            <!-- Question links will be added here dynamically -->
+        </div>
+    </div>
+
+    <script src="quiz.js"></script>
+</body>
+</html>
